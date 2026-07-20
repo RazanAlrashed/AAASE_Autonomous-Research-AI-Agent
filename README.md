@@ -24,7 +24,7 @@ START
       ├── score ≥ 7 or max iterations reached → report_generation → audit → END
       └── score < 7                            → refine_query → research_collection (loop)
 
-You can find the final report in 
+You can find the final report in (final_report.md)
       
 <img width="1917" height="1021" alt="Screenshot 2026-07-20 215613" src="https://github.com/user-attachments/assets/a11eb2b8-e812-4775-86f9-7ef64f49bcd9" />
 
