@@ -1,0 +1,21 @@
+# Environment variables (API keys)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# Vector DB (regenerated on every run anyway)
+chroma_db/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS/editor junk
+.DS_Store
+.vscode/
+.idea/
