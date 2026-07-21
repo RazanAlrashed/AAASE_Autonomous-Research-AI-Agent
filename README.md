@@ -5,22 +5,34 @@ An autonomous research agent built with LangGraph that searches the web, stores 
 A Streamlit interface is included so you can run research topics through the pipeline and watch it work in real time.
 
 ✨ Features
+
 🔎 Web search via Tavily, chunked and embedded into a vector store
+
 🧠 Grounded analysis — the LLM is instructed to answer only from retrieved documents, never its own knowledge
+
 ✅ Self-evaluation loop — a quality score (1–10) decides whether to generate the final report or refine the query and search again
+
 🔁 Automatic query refinement with a max iteration cap to prevent infinite loops
+
 📝 Structured enterprise report (Executive Summary, Key Findings, Opportunities, Risks, Recommendations, Conclusion, References)
+
 📋 Audit log of every research run (timestamp, query, quality score, iteration count)
+
 🖥️ Streamlit UI with live progress tracking, quality score display, and a downloadable Markdown report
+
 🏗️ Architecture
 
 The pipeline is a LangGraph state machine:
 
 START
   → research_collection      (Tavily web search)
+  
   → memory_storge            (chunk + embed into Chroma)
+  
   → analysis                 (retrieve relevant chunks, LLM analysis)
+  
   → quality_evaluation       (LLM scores the analysis 1–10)
+  
       ├── score ≥ 7 or max iterations reached → report_generation → audit → END
       └── score < 7                            → refine_query → research_collection (loop)
 
